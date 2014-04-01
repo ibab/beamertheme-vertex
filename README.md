@@ -1,5 +1,5 @@
 
-# Vertex - A clean theme for LaTeX-Beamer
+# Vertex - A theme for LaTeX-Beamer
 
-
+![title page](./demo.png)
 
