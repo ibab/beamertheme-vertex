@@ -17,8 +17,8 @@
 \setlength{\parskip}{0.5em}
 
 % Colors
-\definecolor{vertexDarkGrey}{rgb}{0.3019607844, 0.2803921571,0.258823530}
-\definecolor{vertexLightGrey}{rgb}{0.733333333, 0.7117647064,0.690196078}
+\definecolor{vertexDarkGrey}{rgb}{0.3019607844,0.2803921571,0.258823530}
+\definecolor{vertexLightGrey}{rgb}{0.733333333,0.7117647064,0.690196078}
 \setbeamercolor{normal text}{fg=vertexDarkGrey}
 \setbeamercolor{math text}{parent=normal text}
 \setbeamercolor{structure}{fg=vertexDarkGrey}
@@ -31,6 +31,8 @@
 \setbeamercolor{frametitle}{parent=palette1}
 \setbeamercolor{block title}{parent=palette1}
 \setbeamercolor{block body}{parent=palette2}
+\setbeamercolor{block title example}{parent=palette2}
+\setbeamercolor{block body example}{parent=palette2}
 \setbeamercolor{page number}{fg=vertexDarkGrey}
 
 % Fonts
@@ -80,7 +82,7 @@
     \ifx\insertinstitute\@empty%
     \else%
       \vspace*{5mm}%
-      {\usebeamerfont{institute}institute\insertinstitute\par}%
+      {\usebeamerfont{institute}\insertinstitute\par}%
     \fi% 
     \vfill
     \ifx\insertdate\@empty%
