@@ -135,7 +135,9 @@
 {\end{beamercolorbox}\vskip\smallskipamount}
 
 % Captions
-\setbeamertemplate{caption label separator}{: }
+\captionsetup[figure]{labelformat=empty}  % get rid of 'figure:' under figures
+\captionsetup[subfigure]{labelformat=empty}  % and subfigures
+\captionsetup[table]{labelformat=empty}  % same for tables
 
 % Headline
 \setbeamertemplate{headline}{}
