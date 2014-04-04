@@ -5,6 +5,11 @@
 
 \mode<presentation>
 
+% Process options
+\newif\if@simplefootline\@simplefootlinefalse
+\DeclareOption{simplefootline}{\@simplefootlinetrue}
+\ProcessOptions
+
 % Table of contents
 \useoutertheme[subsection=false,shadow]{miniframes}
 \setbeamertemplate{section in toc}[sections numbered]
@@ -33,7 +38,6 @@
 \setbeamercolor{block body}{parent=palette2}
 \setbeamercolor{block title example}{parent=palette2}
 \setbeamercolor{block body example}{parent=palette2}
-\setbeamercolor{page number}{fg=vertexDarkGrey}
 
 % Fonts
 \usepackage{fontspec}%	
@@ -107,12 +111,16 @@
 \setbeamertemplate{footline}
 {%
 \leavevmode%
-\begin{beamercolorbox}[wd=.2\paperwidth, ht=1.8em, dp=1em, left, leftskip=1em]{}%
-\insertshortauthor%
-\end{beamercolorbox}%
-\begin{beamercolorbox}[wd=.6\paperwidth, ht=1.8em, dp=1em, center]{}%
-\insertshorttitle%
-\end{beamercolorbox}%
+\if@simplefootline%
+  \hfill
+\else%
+  \begin{beamercolorbox}[wd=.2\paperwidth, ht=1.8em, dp=1em, left, leftskip=1em]{normal text}%
+  \insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.6\paperwidth, ht=1.8em, dp=1em, center]{}%
+  \insertshorttitle%
+  \end{beamercolorbox}%
+\fi%
 \begin{beamercolorbox}[wd=.2\paperwidth, ht=1.8em, dp=1em, right, rightskip=1em]{}%
 \insertframenumber{} / \inserttotalframenumber%
 \end{beamercolorbox}%
