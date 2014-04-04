@@ -18,7 +18,7 @@
 
 % Colors
 \definecolor{vertexDarkGrey}{rgb}{0.3019607844,0.2803921571,0.258823530}
-\definecolor{vertexLightGrey}{rgb}{0.733333333,0.7117647064,0.690196078}
+\definecolor{vertexLightGrey}{rgb}{0.833333333,0.8117647064,0.790196078}
 \setbeamercolor{normal text}{fg=vertexDarkGrey}
 \setbeamercolor{math text}{parent=normal text}
 \setbeamercolor{structure}{fg=vertexDarkGrey}
@@ -106,9 +106,15 @@
 \usenavigationsymbolstemplate{}
 \setbeamertemplate{footline}
 {%
-\begin{beamercolorbox}[wd=\textwidth,ht=3ex,dp=2.5ex,leftskip=0.2cm,rightskip=0.3cm]{normal text}%
-\hfill\usebeamerfont{page number}%
-\insertframenumber%
+\leavevmode%
+\begin{beamercolorbox}[wd=.2\paperwidth, ht=1.8em, dp=1em, left, leftskip=1em]{}%
+\insertshortauthor%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.6\paperwidth, ht=1.8em, dp=1em, center]{}%
+\insertshorttitle%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.2\paperwidth, ht=1.8em, dp=1em, right, rightskip=1em]{}%
+\insertframenumber{} / \inserttotalframenumber%
 \end{beamercolorbox}%
 }
 
@@ -129,7 +135,9 @@
 {\end{beamercolorbox}\vskip\smallskipamount}
 
 % Captions
-\setbeamertemplate{caption label separator}{: }
+\captionsetup[figure]{labelformat=empty}  % get rid of 'figure:' under figures
+\captionsetup[subfigure]{labelformat=empty}  % and subfigures
+\captionsetup[table]{labelformat=empty}  % same for tables
 
 % Headline
 \setbeamertemplate{headline}{}
