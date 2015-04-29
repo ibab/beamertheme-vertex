@@ -63,7 +63,7 @@
 \def\maketitle{\ifbeamer@inframe\titlepage\else\frame[plain]{\titlepage}\fi}
 \def\titlepage{\usebeamertemplate{title page}}
 \setbeamertemplate{title page}
-{
+{%
 	\begin{minipage}[b][\paperheight]{\textwidth}
     \centering%
     \begin{beamercolorbox}[wd=\paperwidth,ht=12em,dp=2em]{title page}%
@@ -99,7 +99,7 @@
 
 % Frametitle
 \setbeamertemplate{frametitle}
-{
+{%
 \nointerlineskip % This one's tricky
 \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.3cm,rightskip=0.3cm,ht=3ex,dp=1.5ex]{frametitle}
   \usebeamerfont{frametitle}{\setbeamercolor{math text}{parent=palette1}\insertframetitle}%
@@ -128,7 +128,7 @@
 
 % Blocks
 \setbeamertemplate{block begin}
-{
+{%
   \setbeamercolor{item}{parent=block body}
   \par\vskip\medskipamount%
   \begin{beamercolorbox}[sep=.5ex,dp=0.6ex,leftskip=0.5ex,rightskip=0.5ex]{block title}
