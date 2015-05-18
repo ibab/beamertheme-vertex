@@ -24,6 +24,7 @@
 % Colors
 \definecolor{vertexDarkGrey}{rgb}{0.3019607844,0.2803921571,0.258823530}
 \definecolor{vertexLightGrey}{rgb}{0.833333333,0.8117647064,0.790196078}
+\letcolor{darkred}{red!70!black}
 \setbeamercolor{normal text}{fg=vertexDarkGrey}
 \setbeamercolor{math text}{parent=normal text}
 \setbeamercolor{structure}{fg=vertexDarkGrey}
@@ -38,6 +39,7 @@
 \setbeamercolor{block body}{parent=palette2}
 \setbeamercolor{block title example}{parent=palette2}
 \setbeamercolor{block body example}{parent=palette2}
+\setbeamercolor{description item}{fg=darkred}
 
 % Fonts
 \usepackage{fontspec}%	
@@ -58,6 +60,7 @@
 \setbeamerfont{frametitle}{family=\Regular,size=\Large}
 \setbeamerfont{block title}{family=\Regular,size=\large}
 \setbeamerfont{caption name}{family=\Regular}
+\setbeamerfont{description item}{series=\bfseries}
 
 % Titlepage
 \def\maketitle{\ifbeamer@inframe\titlepage\else\frame[plain]{\titlepage}\fi}
