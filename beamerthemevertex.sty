@@ -11,9 +11,9 @@
 \ProcessOptions
 
 % Table of contents
-\useoutertheme[subsection=false,shadow]{miniframes}
-\setbeamertemplate{section in toc}[sections numbered]
-\setbeamertemplate{subsection in toc}[subsections numbered]
+\useoutertheme[subsection=true,shadow]{miniframes}
+\setbeamertemplate{section in toc}[sections unnumberd]
+\setbeamertemplate{subsection in toc}[subsections unnumbered]
 
 % Itemize
 \setbeamertemplate{itemize item}{→}
@@ -41,6 +41,7 @@
 \setbeamercolor{block body example}{parent=palette2}
 \setbeamercolor{description item}{fg=darkred}
 \setbeamercolor{enumerate item}{fg=darkred}
+\setbeamercolor{itemize item}{fg=darkred}
 
 % Fonts
 \usepackage{fontspec}%	
@@ -123,7 +124,7 @@
   \insertshortauthor%
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.6\paperwidth, ht=1.8em, dp=1em, center]{}%
-  \insertshorttitle%
+  \insertshorttitle: \insertsection%
   \end{beamercolorbox}%
 \fi%
 \begin{beamercolorbox}[wd=.2\paperwidth, ht=1.8em, dp=1em, right, rightskip=1em]{}%
