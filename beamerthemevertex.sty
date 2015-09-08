@@ -24,7 +24,7 @@
 % Colors
 \definecolor{vertexDarkGrey}{rgb}{0.3019607844,0.2803921571,0.258823530}
 \definecolor{vertexLightGrey}{rgb}{0.833333333,0.8117647064,0.790196078}
-\colorlet{darkred}{red!70!black}
+\colorlet{vertexDarkRed}{red!70!black}
 \setbeamercolor{normal text}{fg=vertexDarkGrey}
 \setbeamercolor{math text}{parent=normal text}
 \setbeamercolor{structure}{fg=vertexDarkGrey}
@@ -39,14 +39,14 @@
 \setbeamercolor{block body}{parent=palette2}
 \setbeamercolor{block title example}{parent=palette2}
 \setbeamercolor{block body example}{parent=palette2}
-\setbeamercolor{description item}{fg=darkred}
-\setbeamercolor{enumerate item}{fg=darkred}
-\setbeamercolor{itemize item}{fg=darkred}
-\setbeamercolor{alerted text}{fg=darkred}
+\setbeamercolor{description item}{fg=vertexDarkRed}
+\setbeamercolor{enumerate item}{fg=vertexDarkRed}
+\setbeamercolor{itemize item}{fg=vertexDarkRed}
+\setbeamercolor{alerted text}{fg=vertexDarkRed}
 
 % Fonts
-\usepackage{fontspec}%	
-\usefonttheme{professionalfonts} 
+\usepackage{fontspec}%
+\usefonttheme{professionalfonts}
 \usepackage{unicode-math}
 \newfontfamily\Light{Source Sans Pro Light}%
 \newfontfamily\Regular{Source Sans Pro}%
@@ -94,12 +94,12 @@
     \else%
       \vspace*{5mm}%
       {\usebeamerfont{institute}\insertinstitute\par}%
-    \fi% 
+    \fi%
     \vfill
     \ifx\insertdate\@empty%
     \else%
       {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}%
-    \fi% 
+    \fi%
     \vspace{10mm}%
 	\end{minipage}
 }
@@ -146,7 +146,7 @@
   \usebeamerfont{block body}%
   \begin{beamercolorbox}[sep=.5ex,dp=0.4ex,leftskip=0.5ex,rightskip=0.5ex,vmode]{block body}%
 }
-\setbeamertemplate{block end}  
+\setbeamertemplate{block end}
 {\end{beamercolorbox}\vskip\smallskipamount}
 
 % Captions
