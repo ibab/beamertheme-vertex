@@ -45,8 +45,8 @@
 \setbeamercolor{alerted text}{fg=vertexDarkRed}
 
 % Fonts
-\usepackage{fontspec}%
 \usefonttheme{professionalfonts}
+\usepackage{fontspec}%
 \usepackage{unicode-math}
 \newfontfamily\Light{Source Sans Pro Light}%
 \newfontfamily\Regular{Source Sans Pro}%
@@ -105,13 +105,9 @@
 }
 
 % Frametitle
+\def\insertframetitle{}
 \setbeamertemplate{frametitle}
-{%
-\nointerlineskip % This one's tricky
-\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.3cm,rightskip=0.3cm,ht=3ex,dp=1.5ex]{frametitle}
-  \usebeamerfont{frametitle}{\setbeamercolor{math text}{parent=palette1}\insertframetitle}%
-\end{beamercolorbox}
-}
+{}
 
 % Footline
 \usenavigationsymbolstemplate{}
@@ -155,7 +151,13 @@
 \setbeamerfont{caption}{size=\small}
 
 % Headline
-\setbeamertemplate{headline}{}
+\setbeamertemplate{headline}{%
+  \usebeamerfont{frametitle}
+  \nointerlineskip % This one's tricky
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.3cm,rightskip=0.3cm,ht=3ex,dp=1.5ex]{frametitle}
+    {\setbeamercolor{math text}{parent=palette1}\insertframetitle}%
+  \end{beamercolorbox}%
+}
 
 \mode
 <all>
