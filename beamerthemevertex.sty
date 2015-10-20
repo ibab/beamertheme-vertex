@@ -7,7 +7,9 @@
 
 % Process options
 \newif\if@simplefootline\@simplefootlinefalse
+\newif\if@customcolor\@customcolorfalse
 \DeclareOption{simplefootline}{\@simplefootlinetrue}
+\DeclareOption*{\@customcolortrue\colorlet{mainColor}{\CurrentOption}}
 \ProcessOptions
 
 % Table of contents
@@ -25,6 +27,7 @@
 \definecolor{vertexDarkGrey}{rgb}{0.3019607844,0.2803921571,0.258823530}
 \definecolor{vertexLightGrey}{rgb}{0.833333333,0.8117647064,0.790196078}
 \colorlet{vertexDarkRed}{red!70!black}
+\if@customcolor\else\colorlet{mainColor}{vertexDarkRed}\fi
 \setbeamercolor{normal text}{fg=vertexDarkGrey}
 \setbeamercolor{math text}{parent=normal text}
 \setbeamercolor{structure}{fg=vertexDarkGrey}
@@ -39,10 +42,10 @@
 \setbeamercolor{block body}{parent=palette2}
 \setbeamercolor{block title example}{parent=palette2}
 \setbeamercolor{block body example}{parent=palette2}
-\setbeamercolor{description item}{fg=vertexDarkRed}
-\setbeamercolor{enumerate item}{fg=vertexDarkRed}
-\setbeamercolor{itemize item}{fg=vertexDarkRed}
-\setbeamercolor{alerted text}{fg=vertexDarkRed}
+\setbeamercolor{description item}{fg=mainColor}
+\setbeamercolor{enumerate item}{fg=mainColor}
+\setbeamercolor{itemize item}{fg=mainColor}
+\setbeamercolor{alerted text}{fg=mainColor}
 
 % Fonts
 \usefonttheme{professionalfonts}
