@@ -125,9 +125,13 @@
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.6\paperwidth, ht=1.8em, dp=1em, center]{}%
     \insertshorttitle
-    \ifx\insertsectionhead\@empty
+    \ifx\insertsubsectionhead\@empty
+      \ifx\insertsectionhead\@empty
+      \else
+        :~\insertsectionhead
+      \fi
     \else
-      :~\insertsectionhead
+      :~\insertsubsectionhead
     \fi
   \end{beamercolorbox}%
 \fi%
