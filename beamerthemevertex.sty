@@ -29,7 +29,7 @@
 \definecolor{vertexDarkGrey}{rgb}{0.3019607844,0.2803921571,0.258823530}
 \definecolor{vertexLightGrey}{rgb}{0.833333333,0.8117647064,0.790196078}
 \colorlet{vertexDarkRed}{red!70!black}
-\if@customcolor\else\colorlet{mainColor}{vertexDarkRed}\fi
+\colorlet{vertexLightRed}{vertexDarkRed!70!white}
 
 
 \if@dark%
@@ -38,12 +38,14 @@
   \setbeamercolor{structure}{fg=vertexLightGrey}
   \setbeamercolor{palette1}{fg=vertexDarkGrey,bg=vertexLightGrey}
   \setbeamercolor{palette2}{fg=vertexLightGrey, bg=vertexDarkGrey}
+  \if@customcolor\else\colorlet{mainColor}{vertexLightRed}\fi
 \else
   \setbeamercolor{normal text}{fg=vertexDarkGrey}
   \setbeamercolor{math text}{parent=normal text}
   \setbeamercolor{structure}{fg=vertexDarkGrey}
   \setbeamercolor{palette1}{fg=white, bg=vertexDarkGrey}
   \setbeamercolor{palette2}{fg=vertexDarkGrey,bg=vertexLightGrey}
+  \if@customcolor\else\colorlet{mainColor}{vertexDarkRed}\fi
 \fi
 
 \setbeamercolor{math text}{parent=normal text}
