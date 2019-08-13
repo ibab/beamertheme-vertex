@@ -71,7 +71,7 @@
 \newfontfamily\Regular{Fira Sans}%
 \newfontfamily\Bold{Fira Sans Medium}%
 \setsansfont[BoldFont={Fira Sans Medium}]{Fira Sans Light}%
-\setmonofont[Scale=MatchLowercase]{Fira Code}%
+\setmonofont[Contextuals=Alternate]{Fira Code}%
 \setmathfont{Fira Math}
 \setbeamerfont{title}{family=\Light,size=\fontsize{30}{30}}
 \setbeamerfont{subtitle}{family=\Light,size=\fontsize{18}{20}}
@@ -84,6 +84,14 @@
 \setbeamerfont{caption name}{family=\Regular}
 \setbeamerfont{description item}{series=\bfseries}
 \setbeamerfont{enumerate item}{series=\bfseries}
+
+\newcommand\bumper[1]{%
+  \begin{frame}[c]
+    \Huge\centering\strut\color{vertexDarkRed}%
+    #1
+  \end{frame}
+}
+
 
 % Titlepage
 \def\maketitle{\ifbeamer@inframe\titlepage\else\frame[plain]{\titlepage}\fi}
