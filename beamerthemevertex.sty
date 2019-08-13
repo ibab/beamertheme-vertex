@@ -66,13 +66,13 @@
 % Fonts
 \usefonttheme{professionalfonts}
 \usepackage{fontspec}%
-\usepackage{unicode-math}
-\newfontfamily\Light{Source Sans Pro Light}%
-\newfontfamily\Regular{Source Sans Pro}%
-\newfontfamily\Bold{Source Sans Pro Bold}%
-\setsansfont{Source Sans Pro}%
-\setmonofont[Scale=MatchLowercase]{Source Code Pro}%
-\setmathfont{Latin Modern Math}
+\usepackage[mathrm=sym]{unicode-math}
+\newfontfamily\Light{Fira Sans Light}%
+\newfontfamily\Regular{Fira Sans}%
+\newfontfamily\Bold{Fira Sans Medium}%
+\setsansfont[BoldFont={Fira Sans Medium}]{Fira Sans Light}%
+\setmonofont[Scale=MatchLowercase]{Fira Code}%
+\setmathfont{Fira Math}
 \setbeamerfont{title}{family=\Light,size=\fontsize{30}{30}}
 \setbeamerfont{subtitle}{family=\Light,size=\fontsize{18}{20}}
 \setbeamerfont{date}{size=\fontsize{10}{12}}
