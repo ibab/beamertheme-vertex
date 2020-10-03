@@ -1,7 +1,7 @@
 
 % Vertex beamer theme
 
-\ProvidesPackage{beamerthemevertex}[2014/03/31]
+\ProvidesPackage{beamerthemevertex}[2020/10/03]
 
 \mode<presentation>
 
@@ -9,8 +9,10 @@
 \newif\if@simplefootline\@simplefootlinefalse
 \newif\if@customcolor\@customcolorfalse
 \newif\if@dark\@darkfalse
+\newif\if@totalframes\@totalframesfalse
 \DeclareOption{simplefootline}{\@simplefootlinetrue}
 \DeclareOption{dark}{\@darktrue}
+\DeclareOption{totalframes}{\@totalframestrue}
 \DeclareOption*{\@customcolortrue\colorlet{mainColor}{\CurrentOption}}
 \ProcessOptions
 
@@ -53,7 +55,8 @@
 \setbeamercolor{title}{parent=normal text}
 \setbeamercolor{subtitle}{parent=normal text}
 \setbeamercolor{institute}{parent=normal text}
-\setbeamercolor{frametitle}{parent=palette1}
+\setbeamercolor{headline}{parent=palette1}
+\setbeamercolor{footline}{parent=palette2}
 \setbeamercolor{block title}{parent=palette1}
 \setbeamercolor{block body}{parent=palette2}
 \setbeamercolor{block title example}{parent=palette2}
@@ -79,7 +82,8 @@
 \setbeamerfont{author}{size=\fontsize{16}{18}}
 \setbeamerfont{institute}{size=\fontsize{14}{16}}
 \setbeamerfont{section title}{size=\LARGE}
-\setbeamerfont{frametitle}{family=\Regular,size=\Large}
+\setbeamerfont{headline}{family=\Regular,size=\LARGE}
+\setbeamerfont{footline}{family=\Regular,size=\footnotesize}
 \setbeamerfont{block title}{family=\Regular,size=\large}
 \setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
 \setbeamerfont{caption name}{family=\Regular}
@@ -87,7 +91,7 @@
 \setbeamerfont{enumerate item}{series=\bfseries}
 
 \newcommand\bumper[1]{%
-  \begin{frame}[c]
+  \begin{frame}[c, plain]
     \Huge\centering\strut\color{vertexDarkRed}%
     #1
   \end{frame}
@@ -132,40 +136,80 @@
 	\end{minipage}
 }
 
+\setbeamersize{
+  text margin left=10pt,
+  text margin right=10pt,
+}
+
+\define@key{beamerframe}{t}[true]{% top
+  \beamer@frametopskip=0pt\relax%
+  \beamer@framebottomskip=0pt plus 1fill\relax%
+}
+\define@key{beamerframe}{c}[true]{% center
+  \beamer@frametopskip=0pt plus 1fill\relax%
+  \beamer@framebottomskip=0pt plus 1fill\relax%
+}
+\define@key{beamerframe}{b}[true]{% bottom
+  \beamer@frametopskip=0pt plus 1fill\relax%
+  \beamer@framebottomskip=0pt\relax%
+}
+
 % Frametitle
+\setbeamertemplate{navigation symbols}{}
+
+% Headline with frametitle
 \def\insertframetitle{}
-\setbeamertemplate{frametitle}
-{}
+\def\insertframesubtitle{}
+\setbeamertemplate{headline}{%
+  \nointerlineskip%
+  \usebeamerfont{headline}%
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,rightskip=1em,ht=2.5ex,dp=1ex]{headline}
+    {%
+      \setbeamercolor{math text}{parent=headline}%
+      \insertframetitle%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+        {~–~}\insertframesubtitle%
+      \fi%
+    }%
+  \end{beamercolorbox}%
+}
+
+% get rid of normal frametitle
+\setbeamertemplate{frametitle}{\nointerlineskip}
+\setbeamertemplate{framesubtitle}{\nointerlineskip}
+
 
 % Footline
-\usenavigationsymbolstemplate{}
 \setbeamertemplate{footline}
 {%
 \leavevmode%
 \if@simplefootline%
   \hfill
 \else%
-  \begin{beamercolorbox}[wd=0.3\paperwidth, ht=1.8em, dp=1em, left, leftskip=1em]{}%
-  \insertshortauthor%
-  \ifx\insershortinstitute\@empty
-  \else
-  ~–~\insertshortinstitute%
+  \usebeamerfont{footline}%
+  \begin{beamercolorbox}[wd=1\paperwidth, ht=2.5ex, dp=1ex]{footline}
+    \begin{beamercolorbox}[wd=0.3\paperwidth, ht=2.5ex, dp=1ex, left, leftskip=1em]{author in head/foot}%
+    \strut\insertshortauthor%
+    \ifx\insershortinstitute\@empty\else%
+    ~–~\insertshortinstitute%
+    \fi%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.4\paperwidth, ht=2.5ex, dp=1ex, center]{section in head/foot}%
+      \strut\insertshorttitle%
+      \ifx\insertsubsectionhead\@empty%
+        \ifx\insertsectionhead\@empty%
+        \else%
+          {~–~}\insertsectionhead%
+        \fi%
+      \else%
+        {~–~}\insertsubsectionhead%
+      \fi%
+    \end{beamercolorbox}%
   \fi%
+  \begin{beamercolorbox}[wd=0.3\paperwidth, ht=2.5ex, dp=1ex, right, rightskip=1em]{page number in head/foot}%
+    \strut\insertframenumber{}\if@totalframes / \inserttotalframenumber{}\fi%
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=0.5\paperwidth, ht=1.8em, dp=1em, center]{}%
-    \insertshorttitle
-    \ifx\insertsubsectionhead\@empty
-      \ifx\insertsectionhead\@empty
-      \else
-        \textcolor{mainColor}{~–~}\insertsectionhead
-      \fi
-    \else
-      \textcolor{mainColor}{~–~}\insertsubsectionhead
-    \fi
-  \end{beamercolorbox}%
-\fi%
-\begin{beamercolorbox}[wd=0.2\paperwidth, ht=1.8em, dp=1em, right, rightskip=1em]{}%
-\insertframenumber{} / \inserttotalframenumber%
 \end{beamercolorbox}%
 }
 
@@ -182,22 +226,12 @@
   \usebeamerfont{block body}%
   \begin{beamercolorbox}[sep=.5ex,dp=0.4ex,leftskip=0.5ex,rightskip=0.5ex,vmode]{block body}%
 }
-\setbeamertemplate{block end}
-{\end{beamercolorbox}\vskip\smallskipamount}
+\setbeamertemplate{block end}{\end{beamercolorbox}\vskip\smallskipamount}
 
 % Captions
 \setbeamertemplate{caption}{\insertcaption}
 \setbeamertemplate{caption label separator}{}
 \setbeamerfont{caption}{size=\small}
-
-% Headline
-\setbeamertemplate{headline}{%
-  \usebeamerfont{frametitle}
-  \nointerlineskip % This one's tricky
-  \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.3cm,rightskip=0.3cm,ht=3ex,dp=1.5ex]{frametitle}
-    {\setbeamercolor{math text}{parent=palette1}\insertframetitle}%
-  \end{beamercolorbox}%
-}
 
 \mode
 <all>
