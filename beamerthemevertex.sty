@@ -73,9 +73,21 @@
 \newfontfamily\Light{Fira Sans Light}%
 \newfontfamily\Regular{Fira Sans}%
 \newfontfamily\Bold{Fira Sans Medium}%
-\setsansfont[BoldFont={Fira Sans Medium}]{Fira Sans Light}%
-\setmonofont[Contextuals=Alternate]{Fira Code}%
-\setmathfont{Fira Math}
+\setsansfont[
+  BoldFont=Fira Sans Medium,
+  BoldItalicFont=Fira Sans Medium Italic,
+  ItalicFont=Fira Sans Light Italic
+]{Fira Sans Light}
+\IfFontExistsTF{Fira Code}{
+  \setmonofont[Contextuals=Alternate]{Fira Code}%
+}{
+  \setmonofont{Fira Mono}%
+}
+\IfFontExistsTF{Fira Math}{
+  \setmathfont{Fira Math}
+}{
+  \setmathfont{Latin Modern Math}
+}
 \setbeamerfont{title}{family=\Light,size=\fontsize{30}{30}}
 \setbeamerfont{subtitle}{family=\Light,size=\fontsize{18}{20}}
 \setbeamerfont{date}{size=\fontsize{10}{12}}
