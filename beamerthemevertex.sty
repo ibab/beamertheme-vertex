@@ -204,11 +204,11 @@
 \else%
   \usebeamerfont{footline}%
   \begin{beamercolorbox}[wd=1\paperwidth, ht=2.5ex, dp=1ex]{footline}
-    \begin{beamercolorbox}[wd=0.2\paperwidth, ht=2.5ex, dp=1ex, left, leftskip=1em]{author in head/foot}%
+    \begin{beamercolorbox}[wd=0.25\paperwidth, ht=2.5ex, dp=1ex, left, leftskip=1em]{author in head/foot}%
       \strut\insertshortauthor%
       \ifx\beamer@shortinstitute\@empty\else~–~\insertshortinstitute\fi%
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=0.6\paperwidth, ht=2.5ex, dp=1ex, center]{section in head/foot}%
+    \begin{beamercolorbox}[wd=0.5\paperwidth, ht=2.5ex, dp=1ex, center]{section in head/foot}%
       \strut\insertshorttitle%
       \ifx\insertsubsectionhead\@empty%
         \ifx\insertsectionhead\@empty%
@@ -219,7 +219,7 @@
         {~–~}\insertsubsectionhead%
       \fi%
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=0.2\paperwidth, ht=2.5ex, dp=1ex, right, rightskip=1em]{page number in head/foot}%
+    \begin{beamercolorbox}[wd=0.25\paperwidth, ht=2.5ex, dp=1ex, right, rightskip=1em]{page number in head/foot}%
       \strut\insertframenumber{}\if@totalframes / \inserttotalframenumber{}\fi%
     \end{beamercolorbox}%
   \end{beamercolorbox}%
